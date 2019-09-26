@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Thomas Hansen</Authors>
+    <Description>Configuration plugin for magic.lambda</Description>
+    <Copyright>Thomas Hansen, thomas@gaiasoul.com</Copyright>
+    <PackageProjectUrl>https://github.com/polterguy/magic.lambda.config</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\projects\personal\magic.lambda.config\magic.lambda.config\magic.lambda.config.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\projects\personal\magic.lambda.config\magic.lambda.config\magic.lambda.config.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="magic.node" Version="1.0.0" />
+    <PackageReference Include="magic.node.extensions" Version="1.0.0" />
+    <PackageReference Include="magic.signals.contracts" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
+  </ItemGroup>
+</Project>
