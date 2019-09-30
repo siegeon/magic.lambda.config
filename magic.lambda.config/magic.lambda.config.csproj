@@ -9,12 +9,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\projects\personal\magic.lambda.config\magic.lambda.config\magic.lambda.config.xml</DocumentationFile>
-  </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\projects\personal\magic.lambda.config\magic.lambda.config\magic.lambda.config.xml</DocumentationFile>
+    <DocumentationFile>bin/Release/netstandard2.0/magic.lambda.config.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
