@@ -3,14 +3,13 @@
  * Licensed as Affero GPL unless an explicitly proprietary license has been obtained.
  */
 
-using System;
 using Xunit;
 using magic.node;
 using magic.node.extensions;
 
 namespace magic.lambda.config.tests
 {
-    public class AuthTests
+    public class ConfigTests
     {
         [Fact]
         public void CheckConfigurationSetting()
