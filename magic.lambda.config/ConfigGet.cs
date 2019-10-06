@@ -15,8 +15,8 @@ namespace magic.lambda.config
     /// <summary>
     /// [config] slot for retrieving configuration settings for your application.
     /// </summary>
-    [Slot(Name = "config")]
-    public class Config : ISlot
+    [Slot(Name = "config.get")]
+    public class ConfigGet : ISlot
     {
         readonly IConfiguration _configuration;
 
@@ -24,7 +24,7 @@ namespace magic.lambda.config
         /// Creates a new instance of your class.
         /// </summary>
         /// <param name="configuration">Configuration settings for your application.</param>
-        public Config(IConfiguration configuration)
+        public ConfigGet(IConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
