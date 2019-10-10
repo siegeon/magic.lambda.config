@@ -15,7 +15,7 @@ namespace magic.lambda.config.tests
         public void CheckConfigurationSetting()
         {
             var signaler = Common.Initialize();
-            var args = new Node("config.get", "foo-value");
+            var args = new Node("", "foo-value");
             signaler.Signal("config.get", args);
             Assert.Equal("bar-xx", args.Get<string>());
         }
