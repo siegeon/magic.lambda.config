@@ -25,7 +25,7 @@ namespace magic.lambda.config
         /// <param name="configuration">Configuration settings for your application.</param>
         public ConfigGet(IConfiguration configuration)
         {
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _configuration = configuration;
         }
 
         /// <summary>
