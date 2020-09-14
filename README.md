@@ -1,7 +1,7 @@
 
 # Magic Lambda Config
 
-[![Build status](https://travis-ci.org/polterguy/magic.lambda.config.svg?master)](https://travis-ci.org/polterguy/magic.lambda.config)
+[![Build status](https://travis-ci.com/polterguy/magic.lambda.config.svg?master)](https://travis-ci.com/polterguy/magic.lambda.config)
 
 This project provides configuration settings slots for [Magic](https://github.com/polterguy/magic). The project provides one
 single slot, allowing you to retrieve configuration settings from your configuration file as follows.
