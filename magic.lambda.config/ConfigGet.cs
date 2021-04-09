@@ -12,7 +12,7 @@ using magic.signals.contracts;
 namespace magic.lambda.config
 {
     /// <summary>
-    /// [config] slot for retrieving configuration settings for your application.
+    /// [config.get] slot for retrieving a configuration key.
     /// </summary>
     [Slot(Name = "config.get")]
     public class ConfigGet : ISlot
@@ -35,7 +35,7 @@ namespace magic.lambda.config
         /// <param name="input">Arguments to your slot.</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            input.Value = _configuration[input.GetEx<string>() ?? throw new ArgumentException("No value provided to [config]")];
+            input.Value = _configuration[input.GetEx<string>() ?? throw new ArgumentException("No value provided to [config.get]")];
         }
     }
 }
