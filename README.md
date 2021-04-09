@@ -35,6 +35,10 @@ also how to have the **[config.section]** return a hierarchy of the _entire_ sec
 figure this out, at which point the APIs for these methods will slightly change. They are currently both to be
 considered as BETA versions.
 
+## Project website
+
+The source code for this repository can be found at [github.com/polterguy/magic.lambda.config](https://github.com/polterguy/magic.lambda.config), and you can provide feedback, provide bug reports, etc at the same place.
+
 ## Quality gates
 
 - [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=polterguy_magic.lambda.config&metric=alert_status)](https://sonarcloud.io/dashboard?id=polterguy_magic.lambda.config)
