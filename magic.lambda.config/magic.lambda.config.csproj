@@ -10,7 +10,7 @@
     <Description>Configuration slots for Magic, allowing you to easily read configuration settings in your Magic application. To use package go to https://polterguy.github.io</Description>
     <PackageProjectUrl>https://github.com/polterguy/magic.lambda.config</PackageProjectUrl>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>9.8.5</PackageVersion>
+    <PackageVersion>9.8.6</PackageVersion>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/polterguy/magic.lambda.config.git</RepositoryUrl>
@@ -40,7 +40,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.0.0" />
-    <PackageReference Include="magic.node.extensions" Version="9.8.5" />
-    <PackageReference Include="magic.signals.contracts" Version="9.8.5" />
+    <PackageReference Include="magic.node.extensions" Version="9.8.6" />
+    <PackageReference Include="magic.signals.contracts" Version="9.8.6" />
   </ItemGroup>
 </Project>
