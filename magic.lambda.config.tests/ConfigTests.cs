@@ -25,7 +25,7 @@ namespace magic.lambda.config.tests
         {
             var signaler = Common.Initialize();
             var args = new Node("");
-            Assert.Throws<ArgumentException>(() => signaler.Signal("config.get", args));
+            Assert.Throws<HyperlambdaException>(() => signaler.Signal("config.get", args));
         }
     }
 }

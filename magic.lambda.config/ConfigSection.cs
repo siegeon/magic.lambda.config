@@ -36,7 +36,7 @@ namespace magic.lambda.config
         public void Signal(ISignaler signaler, Node input)
         {
             var section = _configuration.GetSection(input.GetEx<string>() ??
-                throw new ArgumentException("No value provided to [config.section]"));
+                throw new HyperlambdaException("No value provided to [config.section]"));
             var tmp = section
                 .GetChildren()
                 .ToDictionary(x => x.Key, x => x.Value);
