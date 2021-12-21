@@ -2,8 +2,8 @@
  * Magic Cloud, copyright Aista, Ltd. See the attached LICENSE file for details.
  */
 
-using Microsoft.Extensions.Configuration;
 using magic.node;
+using magic.node.contracts;
 using magic.node.extensions;
 using magic.signals.contracts;
 
@@ -15,13 +15,13 @@ namespace magic.lambda.config
     [Slot(Name = "config.get")]
     public class ConfigGet : ISlot
     {
-        readonly IConfiguration _configuration;
+        readonly IMagicConfiguration _configuration;
 
         /// <summary>
         /// Creates a new instance of your class.
         /// </summary>
         /// <param name="configuration">Configuration settings for your application.</param>
-        public ConfigGet(IConfiguration configuration)
+        public ConfigGet(IMagicConfiguration configuration)
         {
             _configuration = configuration;
         }

@@ -5,6 +5,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using magic.node;
+using magic.node.contracts;
 using magic.signals.contracts;
 
 namespace magic.lambda.config
@@ -15,6 +16,22 @@ namespace magic.lambda.config
     [Slot(Name = "config.load")]
     public class LoadAppSettings : ISlot, ISlotAsync
     {
+        readonly IFileService _fileService;
+        readonly IRootResolver _rootResolver;
+
+        /// <summary>
+        /// Creates an instance of your type.
+        /// </summary>
+        /// <param name="fileService">Needed to be able to save configuration settings.</param>
+        /// <param name="configRoot">Needed to be able to resolve root filename for configuration settings file.</param>
+        public LoadAppSettings(
+            IFileService fileService,
+            IRootResolver rootResolver)
+        {
+            _fileService = fileService;
+            _rootResolver = rootResolver;
+        }
+
         /// <summary>
         /// Implementation of signal
         /// </summary>
@@ -22,11 +39,7 @@ namespace magic.lambda.config
         /// <param name="input">Parameters passed from signaler</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            input.Value = File.ReadAllText(
-                Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "config",
-                    "appsettings.json"));
+            input.Value = _fileService.Load(_rootResolver.RootPath("config/appsettings.json"));
         }
 
         /// <summary>
@@ -36,11 +49,7 @@ namespace magic.lambda.config
         /// <param name="input">Parameters passed from signaler</param>
         public async Task SignalAsync(ISignaler signaler, Node input)
         {
-            input.Value = await File.ReadAllTextAsync(
-                Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "config",
-                    "appsettings.json"));
+            input.Value = await _fileService.LoadAsync(_rootResolver.RootPath("config/appsettings.json"));
         }
     }
 }

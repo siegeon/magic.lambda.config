@@ -2,10 +2,9 @@
  * Magic Cloud, copyright Aista, Ltd. See the attached LICENSE file for details.
  */
 
-using System.IO;
-using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using magic.node;
+using magic.node.contracts;
 using magic.node.extensions;
 using magic.signals.contracts;
 
@@ -17,15 +16,20 @@ namespace magic.lambda.config
     [Slot(Name = "config.save")]
     public class SaveAppSettings : ISlot
     {
-        readonly IConfiguration _configuration;
+        readonly IFileService _fileService;
+        readonly IRootResolver _rootResolver;
 
         /// <summary>
         /// Creates an instance of your type.
         /// </summary>
-        /// <param name="configRoot">Needed to force a reload of configuration settings after having saved the file.</param>
-        public SaveAppSettings(IConfiguration configuration)
+        /// <param name="fileService">Needed to be able to save configuration settings.</param>
+        /// <param name="configRoot">Needed to be able to resolve root filename for configuration settings file.</param>
+        public SaveAppSettings(
+            IFileService fileService,
+            IRootResolver rootResolver)
         {
-            _configuration = configuration;
+            _fileService = fileService;
+            _rootResolver = rootResolver;
         }
 
         /// <summary>
@@ -45,12 +49,7 @@ namespace magic.lambda.config
             var jObject = JObject.Parse(json);
 
             // Saving JSON as text to "appsettings.json" file.
-            File.WriteAllText(
-                Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    "config",
-                    "appsettings.json"),
-                json);
+            _fileService.Save(_rootResolver.RootPath("config/appsettings.json"), json);
         }
     }
 }
