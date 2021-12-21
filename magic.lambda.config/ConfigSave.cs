@@ -49,7 +49,7 @@ namespace magic.lambda.config
             var jObject = JObject.Parse(json);
 
             // Saving JSON as text to "appsettings.json" file.
-            _fileService.Save(_rootResolver.RootPath("config/appsettings.json"), json);
+            _fileService.Save(_rootResolver.RootFolder + "config/appsettings.json", json);
         }
     }
 }

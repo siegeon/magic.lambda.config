@@ -39,7 +39,7 @@ namespace magic.lambda.config
         /// <param name="input">Parameters passed from signaler</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            input.Value = _fileService.Load(_rootResolver.RootPath("config/appsettings.json"));
+            input.Value = _fileService.Load(_rootResolver.RootFolder + "config/appsettings.json");
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace magic.lambda.config
         /// <param name="input">Parameters passed from signaler</param>
         public async Task SignalAsync(ISignaler signaler, Node input)
         {
-            input.Value = await _fileService.LoadAsync(_rootResolver.RootPath("config/appsettings.json"));
+            input.Value = await _fileService.LoadAsync(_rootResolver.RootFolder + "config/appsettings.json");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace magic.lambda.config.services
         {
             _fileService = fileService;
             _rootService = rootService;
-            var json = _fileService.Load(_rootService.AbsoluteRootFolder + "config/appsettings.json");
+            var json = _fileService.Load(_rootService.RootFolder + "config/appsettings.json");
             _config = JObject.Parse(json);
         }
 
@@ -39,7 +39,7 @@ namespace magic.lambda.config.services
             {
                 var jObject = Find(key);
                 jObject.Value = value;
-                _fileService.Save(_rootService.AbsoluteRootFolder + "config/appsettings.json", _config.ToString());
+                _fileService.Save(_rootService.RootFolder + "config/appsettings.json", _config.ToString());
             }
         }
 
