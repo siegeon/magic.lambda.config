@@ -2,6 +2,8 @@
  * Magic Cloud, copyright Aista, Ltd. See the attached LICENSE file for details.
  */
 
+using System.Linq;
+using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using magic.node.contracts;
 
@@ -28,6 +30,14 @@ namespace magic.lambda.config.services
         public string this[string key]
         {
             get => _configuration[key];
+        }
+
+        /// <inheritdoc />
+        public Dictionary<string, string> GetSection(string key)
+        {
+            return _configuration.GetSection(key)
+                .GetChildren()
+                .ToDictionary(x => x.Key, x => x.Value);
         }
     }
 }

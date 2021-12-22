@@ -34,12 +34,8 @@ namespace magic.lambda.config
         /// <param name="input">Arguments to your slot.</param>
         public void Signal(ISignaler signaler, Node input)
         {
-            /*var section = _configuration.GetSection(input.GetEx<string>() ??
-                throw new HyperlambdaException("No value provided to [config.section]"));
-            var tmp = section
-                .GetChildren()
-                .ToDictionary(x => x.Key, x => x.Value);
-            input.AddRange(tmp.Select(x => new Node(x.Key, x.Value)));*/
+            var section = _configuration.GetSection(input.GetEx<string>() ?? throw new HyperlambdaException("No value provided to [config.section]"));
+            input.AddRange(section.Select(x => new Node(x.Key, x.Value)));
         }
     }
 }
