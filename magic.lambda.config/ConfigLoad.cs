@@ -23,7 +23,7 @@ namespace magic.lambda.config
         /// Creates an instance of your type.
         /// </summary>
         /// <param name="fileService">Needed to be able to save configuration settings.</param>
-        /// <param name="configRoot">Needed to be able to resolve root filename for configuration settings file.</param>
+        /// <param name="rootResolver">Needed to be able to resolve root filename for configuration settings file.</param>
         public LoadAppSettings(
             IFileService fileService,
             IRootResolver rootResolver)
